@@ -1,12 +1,12 @@
-
+import Navbar from "./Navbar"
+import Header from "./Header"
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold">
-        A-Eggaw
-      </h1>
+      <Navbar headline={"A-Eggaw"}/>
+      <Header headline={"Choose Your Location"}/>
     </>
   )
 }
