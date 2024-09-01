@@ -20,10 +20,10 @@ function Navbar({ headline }) {
       </div>
       <div className="flex-none">
         <button
-          className="btn"
+          className="btn btn-circle text-3xl btn-ghost"
           onClick={toggleTheme}
         >
-          {theme === light ? 'dark' : 'light'}
+          {theme === light ? '🌝' : '☀️'}
         </button>
       </div>
     </nav>

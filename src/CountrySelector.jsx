@@ -6,7 +6,7 @@ const CountrySelector = ({ selectedCountry, setSelectedCountry }) => {
     };
 
     return (
-        <select value={selectedCountry} onChange={handleCountrySelect} className="select select-bordered w-full max-w-xs">
+        <select value={selectedCountry} onChange={handleCountrySelect} className="select select-bordered w-full max-w-xs join-item">
             {worldCountries.map((country) => (
                 <option key={country.code} value={country.name}>
                     {country.name} - {country.code}

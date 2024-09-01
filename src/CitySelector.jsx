@@ -4,7 +4,7 @@ const CitySelector = ({ selectedCity, setSelectedCity, selectedCountry }) => {
     const citesList = worldCities.filter((city) => city["country_name"] === selectedCountry)
     return (
         <select
-            className="select select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs join-item rounded-full"
             value={selectedCity === "" ? "Select a city" : selectedCity}
             onChange={(e) => setSelectedCity(e.target.value)}
         >
