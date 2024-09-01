@@ -1,17 +1,22 @@
 import { useState } from "react"
 import Navbar from "./Navbar"
 import Header from "./Header"
-import CountrySelector from "./CountrySelector"
+import SearchBar from "./Searchbar"
+import CountryMap from "./CountryMap"
 
 
 function App() {
-  const [country, setCountry] = useState("EG")
+  const [country, setCountry] = useState("Egypt")
+  const [city, setCity] = useState('')
 
   return (
     <>
-      <Navbar headline={"A-Eggaw"}/>
-      <Header headline={"Choose Your Location"} />
-      <CountrySelector selectedCountry={country} setSelectedCountry={setCountry} />
+      <Navbar headline={"A-Eggaw"} />
+      <main className="flex flex-col justify-center">
+        <Header headline={"Choose Your Location"} />
+        <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
+        <CountryMap selectedCountry={country} />
+      </main>
     </>
   )
 }
