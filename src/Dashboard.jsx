@@ -1,15 +1,18 @@
 import { useParams } from 'react-router-dom'
 
-import WeatherCard from "./WeatherCard";
-import DaySelector from './DaySelector';
+import DailyBoard from './DailyBoard';
+import WeeklyBoard from './WeeklyBoard';
+import MonthlyBoard from './MonthlyBoard';
 
 const Dashboard = () => {
 
     const { country, city } = useParams()
-    return (
-        <div>
-            <DaySelector/>
-        </div>
+  return (
+    <>
+    <DailyBoard />
+    <WeeklyBoard />
+    <MonthlyBoard />
+    </>
     )
 }
 

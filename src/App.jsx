@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 
 import Navbar from "./Navbar"
 import SearchBar from "./Searchbar"
-import CountryMap from "./CountryMap"
+import CountryTable from "./CountryTable"
 import Footer from "./Footer"
 import Dashboard from "./Dashboard"
 
@@ -19,7 +19,7 @@ function App() {
       <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
       <Routes>
         <Route path="/dashboard/:country/:city" element={<Dashboard />} />
-        <Route path="/" element={<CountryMap selectedCountry={country} selectedCity={city} />} />
+        <Route path="/" element={<CountryTable selectedCountry={country} selectedCity={city} />} />
       </Routes>
       <Footer />
     </>

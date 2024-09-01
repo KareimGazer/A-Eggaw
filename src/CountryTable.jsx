@@ -26,7 +26,7 @@ const CityEntry = ({ city }) => {
 }
     
 
-const CountryMap = ({ selectedCountry }) => {
+const CountryTable = ({ selectedCountry }) => {
 
     const citesList = worldCities.filter((city) => city["country_name"] === selectedCountry)
 
@@ -53,4 +53,4 @@ const CountryMap = ({ selectedCountry }) => {
     )
 }
 
-export default CountryMap;
+export default CountryTable;
