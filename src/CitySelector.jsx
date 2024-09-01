@@ -8,10 +8,9 @@ const CitySelector = ({ selectedCity, setSelectedCity, selectedCountry }) => {
             value={selectedCity === "" ? "Select a city" : selectedCity}
             onChange={(e) => setSelectedCity(e.target.value)}
         >
-            <option value="">Select a city</option>
             {citesList.map((city) => (
                 <option key={city.id} value={city.name}>
-                    {city.name}
+                    {city.name} - {city.state_code}
                 </option>
             ))}
         </select>

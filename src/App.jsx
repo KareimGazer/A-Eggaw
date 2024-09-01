@@ -1,8 +1,12 @@
 import { useState } from "react"
+import {Routes, Route} from 'react-router-dom'
+
 import Navbar from "./Navbar"
-import Header from "./Header"
 import SearchBar from "./Searchbar"
 import CountryMap from "./CountryMap"
+import Footer from "./Footer"
+import Dashboard from "./Dashboard"
+
 
 
 function App() {
@@ -12,11 +16,12 @@ function App() {
   return (
     <>
       <Navbar headline={"A-Eggaw"} />
-      <main className="flex flex-col justify-center">
-        <Header headline={"Choose Your Location"} />
-        <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
-        <CountryMap selectedCountry={country} />
-      </main>
+      <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
+      <Routes>
+        <Route path="/dashboard/:country/:city" element={<Dashboard />} />
+        <Route path="/" element={<CountryMap selectedCountry={country} selectedCity={city} />} />
+      </Routes>
+      <Footer />
     </>
   )
 }
