@@ -16,11 +16,13 @@ function App() {
   return (
     <>
       <Navbar headline={"A-Eggaw"} />
-      <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
-      <Routes>
-        <Route path="/dashboard/:country/:city" element={<Dashboard />} />
-        <Route path="/" element={<CountryTable selectedCountry={country} selectedCity={city} />} />
-      </Routes>
+      <div className="flex flex-col items-center">
+        <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
+        <Routes>
+          <Route path="/dashboard/:country/:city" element={<Dashboard />} />
+          <Route path="/" element={<CountryTable selectedCountry={country} selectedCity={city} />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   )

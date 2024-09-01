@@ -31,8 +31,8 @@ const CountryTable = ({ selectedCountry }) => {
     const citesList = worldCities.filter((city) => city["country_name"] === selectedCountry)
 
     return (
-        <div className="overflow-x-auto m-20">
-            <table className="table text-center">
+        <div className="m-20">
+            <table className="table">
                 <thead>
                     <tr>
                         <th>City</th>

@@ -4,7 +4,7 @@ import { faCloudSun, faTemperature0, faWind, faDroplet, faGlassWaterDroplet, faS
 const Focus = ({high, low, state}) => {
 
     return (
-        <div className='text-center card card-bordered border-2 flex flex-col justify-center p-4 w-full max-w-xs'>
+        <div className='text-center card card-bordered border-2 flex flex-col justify-center p-4 w-full'>
             <h1 className='font-bold text-left card-title'> Today </h1>
             <FontAwesomeIcon icon={faCloudSun} className='text-7xl h-full p-16' />
             <div>
@@ -19,7 +19,7 @@ const Focus = ({high, low, state}) => {
 const Details = () => {
 
     return (
-        <div className='p-1 w-full max-w-md'>
+        <div className='p-1 w-full'>
             <header className='pb-4'>
                 <div className='card flex flex-col text-xl'>
                     <h1 className='text-left card-title'><span className='font-bold'>Monday,</span> <span className='font-normal'>2 Sep.</span></h1>
@@ -80,7 +80,7 @@ const Details = () => {
 const DailyBoard = () => {
 
     return (
-        <div className='flex flex-row gap-2 m-8 justify-center'>
+        <div className='flex flex-row gap-2 m-8 justify-center w-full'>
             <Focus high={36} low={20} state={"sunny"} />
             <Details/>
         </div>

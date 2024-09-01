@@ -8,11 +8,11 @@ const Dashboard = () => {
 
     const { country, city } = useParams()
   return (
-    <>
-    <DailyBoard />
-    <WeeklyBoard />
-    <MonthlyBoard />
-    </>
+    <div className="flex flex-col items-center">
+      <DailyBoard />
+      <WeeklyBoard />
+      <MonthlyBoard />
+    </div>
     )
 }
 
