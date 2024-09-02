@@ -11,10 +11,10 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
   }
 
     return (
-        <div className="flex flex-col w-full items-center">
+        <div>
             <h1 className="text-4xl font-bold text-center m-14">Choose Your Location</h1>
             <form onSubmit={onSubmit}>
-                <fieldset className="flex justify-center join">
+                <fieldset className="join">
                     <CitySelector selectedCity={selectedCity} setSelectedCity={setSelectedCity} selectedCountry={selectedCountry} />
                     <CountrySelector selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} />
                     <input disabled={!selectedCountry || !selectedCity} className="btn btn-primary join-item rounded-full" type="submit" value={"Forecast"}/>

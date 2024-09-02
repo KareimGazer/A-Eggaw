@@ -10,7 +10,7 @@ const CityEntry = ({ city }) => {
             </td>
         <td>
             <div>
-              <div className="font-bold text-2xl text-left">40</div>
+              <div className="font-bold text-2xl">40</div>
               <div className="opacity-50 text-xl">20</div>
             </div>
         </td>
@@ -31,7 +31,7 @@ const CountryTable = ({ selectedCountry }) => {
     const citesList = worldCities.filter((city) => city["country_name"] === selectedCountry)
 
     return (
-        <div className="m-20">
+        <div className="m-20 w-8/12">
             <table className="table">
                 <thead>
                     <tr>
