@@ -80,7 +80,7 @@ const Details = () => {
 const DailyBoard = () => {
 
     return (
-        <div className='flex flex-row gap-2 m-8 justify-center w-full'>
+        <div className='flex flex-row gap-2 m-8 justify-center w-full max-w-2xl'>
             <Focus high={36} low={20} state={"sunny"} />
             <Details/>
         </div>

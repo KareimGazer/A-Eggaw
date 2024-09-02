@@ -15,7 +15,7 @@ const CityEntry = ({ city }) => {
             </div>
         </td>
         <td>
-            <span className="badge badge-md badge-ghost">Partly cloudy</span>
+            <span className="badge badge-md badge-secondary">Partly cloudy</span>
         </td>
         <th>
           <p className="font-normal">Expect sunny skies. The high will be 36°.</p>

@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Navbar headline={"A-Eggaw"}/>
-      <div className="flex flex-col items-center w-full bg-gradient-to-t from-cyan-600">
+      <div className="flex flex-col items-center w-full bg-gradient-to-t from-cyan-500">
         <SearchBar selectedCountry={country} selectedCity={city} setSelectedCity={setCity} setSelectedCountry={setCountry} />
         <Routes>
           <Route path="/dashboard/:country/:city" element={<Dashboard />} />
