@@ -1,22 +1,55 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 import CountrySelector from "./CountrySelector";
 import CitySelector from "./CitySelector";
+import worldCities from './worldCities';
 
-const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity }) => {
+const calcDistance = (lat1, lon1, lat2, lon2) => {
+    return Math.sqrt((lat1 - lat2) ** 2 + (lon1 - lon2) ** 2)
+}
+
+const Loading = () => (<span className="loading loading-dots loading-lg p-0"></span>)
+
+const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity, setLoc }) => {
+    
+    const [userMessage, setUserMessage] = useState("Chooce Your Location")
+    const [loading, setLoading] = useState(true)
+
     const navigate = useNavigate()
     const onSubmit = (event) => {
     event.preventDefault()
     navigate('/dashboard/' + selectedCountry + '/' + selectedCity)
-  }
+    }
+
+    useEffect(() => {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const [lat, lon] = [pos.coords.latitude, pos.coords.longitude].map(x => x.toFixed(3))
+                    setLoc({ latitude: lat, longitude: lon })
+                    const current_city = worldCities.reduce((prev, curr) => (calcDistance(lat, lon, curr.latitude, curr.longitude) < calcDistance(lat, lon, prev.latitude, prev.longitude)) ? curr : prev);
+                    setSelectedCity(current_city.name)
+                    setSelectedCountry(current_city.country_name)
+                    setUserMessage("Based On Your Location: " + current_city.name + ", " + current_city.country_name)
+                    setLoading(false)
+                },
+                (err) => console.log(err)
+            )
+        }
+        else {
+            console.error("geolocation not available")
+        }
+
+    }, [])
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold text-center m-14">Choose Your Location</h1>
+        <div className="flex flex-col items-center p-8">
+            <h1 className="text-4xl font-bold py-8">{userMessage} {loading ? Loading() : ""}</h1>
             <form onSubmit={onSubmit}>
                 <fieldset className="join">
-                    <CitySelector selectedCity={selectedCity} setSelectedCity={setSelectedCity} selectedCountry={selectedCountry} />
-                    <CountrySelector selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} />
+                    <CitySelector selectedCity={selectedCity} setSelectedCity={setSelectedCity} selectedCountry={selectedCountry} setUserMessage={setUserMessage} setLoading={setLoading}/>
+                    <CountrySelector selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} setUserMessage={setUserMessage} setLoading={setLoading}/>
                     <input disabled={!selectedCountry || !selectedCity} className="btn btn-primary join-item rounded-full" type="submit" value={"Forecast"}/>
             </fieldset>
         </form>

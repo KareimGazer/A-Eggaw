@@ -77,7 +77,7 @@ const Details = () => {
     )
 }
 
-const DailyBoard = () => {
+const DailyBoard = ({country, city}) => {
 
     return (
         <div className='flex flex-row gap-2 m-8 justify-center w-full max-w-2xl'>

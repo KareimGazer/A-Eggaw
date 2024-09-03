@@ -85,10 +85,10 @@ const MonthCard = ({sunnyDays, rainyDays, avgHigh, avgLow}) => {
 }
 
 
-const MonthlyBoard = () => {
+const MonthlyBoard = ({country, city}) => {
 
     return (
-        <div className=" max-w-5xl">
+        <div className="max-w-5xl">
             <Title/>
             <MonthsList />
             <MonthTable />

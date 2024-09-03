@@ -5,13 +5,12 @@ import WeeklyBoard from './WeeklyBoard';
 import MonthlyBoard from './MonthlyBoard';
 
 const Dashboard = () => {
-
-    const { country, city } = useParams()
+  const { country, city } = useParams()
   return (
     <div className="flex flex-col items-center">
-      <DailyBoard />
-      <WeeklyBoard />
-      <MonthlyBoard />
+      <DailyBoard country={country} city={city}/>
+      <WeeklyBoard country={country} city={city}/>
+      <MonthlyBoard country={country} city={city}/>
     </div>
     )
 }

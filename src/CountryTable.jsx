@@ -26,7 +26,7 @@ const CityEntry = ({ city }) => {
 }
     
 
-const CountryTable = ({ selectedCountry }) => {
+const CountryTable = ({ selectedCountry, selectedCity }) => {
 
     const citesList = worldCities.filter((city) => city["country_name"] === selectedCountry)
 
