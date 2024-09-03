@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloudSun, faTemperature0, faWind, faDroplet, faGlassWaterDroplet, faSun } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const daysOfWeek = [
@@ -17,7 +16,7 @@ const daysOfWeek = [
 ];
 const Card = ({ day }) => {
   return (
-    <div className="btn btn-ghost m-1 flex-shrink-0 rounded-lg shadow-lg text-center">
+    <div className="btn btn-secondary m-1 flex-shrink-0 rounded-lg text-center">
       <h3 className="text-xl font-semibold">{day}</h3>
     </div>
   );
@@ -60,7 +59,7 @@ const WeekCards = () => {
     <div className="relative w-full max-w-full overflow-hidden">
       <div className="flex">
         <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary p-2 rounded-md"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-secondary p-2 rounded-md"
           onClick={prevSlide}
           disabled={index === 0}
         >
@@ -72,7 +71,7 @@ const WeekCards = () => {
           ))}
         </div>
         <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-primary p-2 rounded-md"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-secondary p-2 rounded-md"
           onClick={nextSlide}
           disabled={index + visibleCards >= daysOfWeek.length}
         >

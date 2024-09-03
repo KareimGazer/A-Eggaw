@@ -3,16 +3,13 @@ import {Routes, Route} from 'react-router-dom'
 
 import Navbar from "./Navbar"
 import SearchBar from "./Searchbar"
-import CountryTable from "./CountryTable"
+import CountryInfo from "./CountryInfo"
 import Footer from "./Footer"
 import Dashboard from "./Dashboard"
 
-
-
 function App() {
   const [country, setCountry] = useState('') // maybe better to defualt to any country
-  const [city, setCity] = useState('')
-  const [loc, setLoc] = useState({ latitude: 0, longitude: 0 })
+  const [city, setCity] = useState('Cairo')
 
   return (
     <>
@@ -23,11 +20,10 @@ function App() {
           selectedCity={city}
           setSelectedCity={setCity}
           setSelectedCountry={setCountry}
-          setLoc={setLoc}
         />
         <Routes>
-          <Route path="/dashboard/:country/:city" element={<Dashboard />} />
-          <Route path="/" element={<CountryTable selectedCountry={country} selectedCity={city} />} />
+          <Route path="/dashboard/:country/:city" element={<Dashboard country={country} city={city}/>}/>
+          <Route path="/" element={<CountryInfo country={country} />} />
         </Routes>
       </div>
       <Footer />

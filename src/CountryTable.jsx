@@ -1,4 +1,3 @@
-import worldCities from "./worldCities"
 
 const CityEntry = ({ city }) => {
     return (
@@ -26,12 +25,10 @@ const CityEntry = ({ city }) => {
 }
     
 
-const CountryTable = ({ selectedCountry, selectedCity }) => {
-
-    const citesList = worldCities.filter((city) => city["country_name"] === selectedCountry)
+const CountryTable = ({ cities }) => {
 
     return (
-        <div className="m-20 w-8/12">
+        <div className="m-20 w-full">
             <table className="table">
                 <thead>
                     <tr>
@@ -42,9 +39,8 @@ const CountryTable = ({ selectedCountry, selectedCity }) => {
                         <th>Feels Like</th>
                     </tr>
                 </thead>
-    
                 <tbody>
-                    {citesList.map((city) => (
+                    {cities.map((city) => (
                         <CityEntry key={city.id} city={city} />
                     ))}
                 </tbody>

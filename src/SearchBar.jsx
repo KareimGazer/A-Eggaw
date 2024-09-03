@@ -11,7 +11,7 @@ const calcDistance = (lat1, lon1, lat2, lon2) => {
 
 const Loading = () => (<span className="loading loading-dots loading-lg p-0"></span>)
 
-const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity, setLoc }) => {
+const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity}) => {
     
     const [userMessage, setUserMessage] = useState("Chooce Your Location")
     const [loading, setLoading] = useState(true)
@@ -19,7 +19,7 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
     const navigate = useNavigate()
     const onSubmit = (event) => {
     event.preventDefault()
-    navigate('/dashboard/' + selectedCountry + '/' + selectedCity)
+        navigate('/dashboard/' + selectedCountry + '/' + selectedCity)
     }
 
     useEffect(() => {
@@ -27,7 +27,6 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
                     const [lat, lon] = [pos.coords.latitude, pos.coords.longitude].map(x => x.toFixed(3))
-                    setLoc({ latitude: lat, longitude: lon })
                     const current_city = worldCities.reduce((prev, curr) => (calcDistance(lat, lon, curr.latitude, curr.longitude) < calcDistance(lat, lon, prev.latitude, prev.longitude)) ? curr : prev);
                     setSelectedCity(current_city.name)
                     setSelectedCountry(current_city.country_name)
