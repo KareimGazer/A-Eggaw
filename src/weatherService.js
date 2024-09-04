@@ -12,4 +12,8 @@ const getWeekWeather = (lat, lon) => {
     return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=10&format=json&fx=yes&tp=24&cc=no&mca=no`).then(res => res.data.data)
 }
 
-export { getTodayWeather, getWeekWeather }
+const getDayWeather = (lat, lon, date) => {
+    return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&date=${date}&format=json&fx=yes&tp=1&cc=no`).then(res => res.data.data)
+}
+
+export { getTodayWeather, getWeekWeather, getDayWeather}

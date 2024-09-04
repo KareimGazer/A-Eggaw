@@ -86,7 +86,7 @@ const WeekCards = ({ selectedDay, setSelectedDay, city }) => {
 
     return (
         <div className="relative w-full max-w-full overflow-hidden">
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-center items-center">
             <button
             className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-0 rounded-md"
             onClick={prevSlide}
