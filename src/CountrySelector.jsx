@@ -1,8 +1,9 @@
 import worldCountries from "./worldCountries";
 
-const CountrySelector = ({ selectedCountry, setSelectedCountry, setUserMessage, setLoading }) => {
+const CountrySelector = ({ selectedCountry, setSelectedCountry, setSelectedCity, setUserMessage, setLoading }) => {
     const handleCountrySelect = (event) => {
         setSelectedCountry(event.target.value);
+        setSelectedCity('');
         setUserMessage(`Based On Your Choice: ${event.target.value}`);
         setLoading(false);
     };

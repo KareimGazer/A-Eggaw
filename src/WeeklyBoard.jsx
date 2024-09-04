@@ -14,7 +14,7 @@ const WeeklyBoard = ({ country, city }) => {
       const data = weatherData.weather?.[0].hourly.map(d => ({ time: d.time, temp: d.tempC }));
       setSelectedWeather(data)
     })
-  }, [selectedDay])
+  }, [selectedDay, city])
 
   return (
       <div className="flex flex-col gap-4 justify-center">

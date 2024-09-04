@@ -9,7 +9,7 @@ import Dashboard from "./Dashboard"
 
 function App() {
   const [country, setCountry] = useState('') // maybe better to defualt to any country
-  const [city, setCity] = useState('Cairo')
+  const [city, setCity] = useState('')
 
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
           setSelectedCountry={setCountry}
         />
         <Routes>
-          <Route path="/dashboard/:country/:city" element={<Dashboard country={country} city={city}/>}/>
+          <Route path="/dashboard/:country/:city" element={<Dashboard />}/>
           <Route path="/" element={<CountryInfo country={country} />} />
         </Routes>
       </div>

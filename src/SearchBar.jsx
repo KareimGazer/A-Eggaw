@@ -23,7 +23,7 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
     }
 
     useEffect(() => {
-        if ("geolocation" in navigator) {
+        if ("geolocation" in navigator && selectedCountry === '') {
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
                     const [lat, lon] = [pos.coords.latitude, pos.coords.longitude].map(x => x.toFixed(3))
@@ -48,7 +48,7 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
             <form onSubmit={onSubmit}>
                 <fieldset className="join">
                     <CitySelector selectedCity={selectedCity} setSelectedCity={setSelectedCity} selectedCountry={selectedCountry} setUserMessage={setUserMessage} setLoading={setLoading}/>
-                    <CountrySelector selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} setUserMessage={setUserMessage} setLoading={setLoading}/>
+                    <CountrySelector selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} setSelectedCity={setSelectedCity} setUserMessage={setUserMessage} setLoading={setLoading}/>
                     <input disabled={!selectedCountry || !selectedCity} className="btn btn-primary join-item rounded-full" type="submit" value={"Forecast"}/>
             </fieldset>
         </form>
