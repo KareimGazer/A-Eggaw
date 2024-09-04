@@ -70,13 +70,7 @@ const WeatherTemperatureChart = ({ data }) => {
     // Define the line generator with initial y position set to the bottom
     const lineGenerator = d3.line()
       .x(d => x(d.time))
-      .y((d, i) => {
-        // Adding a sine wave effect to the y-coordinate
-        const waveAmplitude = 3; // Adjust this value for more or less waviness
-        const waveFrequency = 0.5; // Adjust this value for more or less frequency of waves
-        const baseY = y(d.temp);
-        return baseY + Math.sin(i * waveFrequency) * waveAmplitude;
-      }); // Start from the bottom
+      .y((d) => y(d.temp))
 
     // Define the area generator with initial y position set to the bottom
     const areaGenerator = d3.area()
@@ -124,8 +118,8 @@ const WeatherTemperatureChart = ({ data }) => {
       .attr("x", d => x(d.time))
       .attr("y", height) // Start from the bottom
       .attr("text-anchor", "middle")
-      .text(d => `${d.temp}°C`)
-      .style("font-size", "10px")
+      .text((d, i) => i%2 === 0 ? `${d.temp}°C`: "")
+      .style("font-size", "14px")
       .style("fill", "black")
       .transition()
       .duration(1500)
