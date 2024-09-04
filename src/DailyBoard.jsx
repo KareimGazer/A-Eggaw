@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloud, faCloudRain, faWind, faDroplet, faGlassWaterDroplet, faSun, faEye} from '@fortawesome/free-solid-svg-icons'
 import WeatherIcon from './WeatherIcon';
-import getTodayWeather from './weatherService';
+import {getTodayWeather} from './weatherService';
 import worldCities from './worldCities';
 
 const Focus = ({currentTemp, desc}) => {
@@ -110,7 +110,6 @@ const DailyBoard = ({ country, city}) => {
     useEffect(() => {
         getTodayWeather(city_data.latitude, city_data.longitude).then(data => setWeatherCond(data.current_condition[0]))
     }, [city])
-    console.log(weatherCond)
     return (
         <div className='flex flex-row gap-2 m-8 justify-center w-full max-w-2xl'>
             <Focus currentTemp={weatherCond.temp_C} desc={weatherCond.weatherDesc?.[0].value}/>

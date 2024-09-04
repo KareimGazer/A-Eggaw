@@ -8,5 +8,8 @@ const getTodayWeather = (lat, lon) => {
     return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&date=today&format=json&tp=24&cc=yes&mca=no&fx=no`).then(res => res.data.data)
 }
 
+const getWeekWeather = (lat, lon) => {
+    return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=10&format=json&fx=yes&tp=24&cc=no&mca=no`).then(res => res.data.data)
+}
 
-export default getTodayWeather
+export { getTodayWeather, getWeekWeather }
