@@ -37,19 +37,20 @@ const MonthTable = () => {
 
     return (
         <div>
-            table
         </div>
     )
 }
 
-const MonthCard = ({sunnyDays, rainyDays, avgHigh, avgLow}) => {
+const MonthCard = ({ sunnyDays, rainyDays, avgHigh, avgLow }) => {
+    const currentDate = new Date();
+    const current_month_name = currentDate.toLocaleString('default', { month: 'long' });
 
     return (
-        <div className='text-center card flex flex-col justify-center p-2 max-w-2xl bg-accent'>
+        <div className='text-center card card-bordered flex flex-col justify-center p-2 max-w-2xl my-4'>
             <h1 className='font-bold text-left'> Weather Overview </h1>
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-2 items-center'>
                 <div>
-                    <FontAwesomeIcon icon={faCloudSun} className='text-6xl p-8' />
+                    <h1 className='text-xl font-bold'>{current_month_name}</h1>
                 </div>
                 <div>
                     <ul className='grid grid-cols-2 gap-4'>

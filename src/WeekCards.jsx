@@ -7,27 +7,32 @@ import { getWeekWeather } from './weatherService';
 import WeatherIcon from './WeatherIcon';
 
 
+const MoreDetails = ({ desc, humidity }) => {
+    return (
+        <div className='text-xs'>
+            <div>{desc}</div>
+            <div>{humidity}%</div>
+        </div>
+    )
+}
 const Card = ({ selectedDay, setSelectedDay, dayDate, dayName, dayNumber, high, low, desc, humidity }) => {
 
     return (
-        <div className="btn btn-secondary m-1 flex-shrink-0 rounded-lg text-center">
+        <div className="flex-shrink-0 rounded-lg text-center card card-bordered p-2" onClick={() => setSelectedDay(dayDate)}>
             <div className='flex flex-col justify-center'>
                 <div>
                     <div className='flex flex-row items-center gap-2'>
-                        <div >{dayName}, </div>
-                        <div>{dayNumber}</div>
+                        <div className='text-xs'>{dayName}, </div>
+                        <div className='text-xs'>{dayNumber}</div>
                     </div>
                 </div>
                 <div className='flex flex-row items-center gap-2'>
-                    <WeatherIcon cond={desc} size='text-left text-xl'/>
-                    <div>
-                        <div>{high}°C</div>
-                        <div>{low}°C</div>
+                    <WeatherIcon cond={desc} size='text-left text-lg'/>
+                    <div className='text-md pl-8 pr-2'>
+                        <div>{high}°</div>
+                        <div>{low}°</div>
                     </div>
-                    <div>
-                        <div>{desc}</div>
-                        <div>{humidity}%</div>
-                    </div>
+                    {selectedDay === dayDate && <MoreDetails desc={desc} humidity={humidity} />}
                 </div>
             </div>
         </div>
@@ -39,7 +44,6 @@ const datesArray = Array.from({ length: 10 }, (_, i) => {
     const today = new Date();
     const nextDate = new Date(today);
     nextDate.setDate(today.getDate() + i);
-
     return { date: nextDate.toISOString().split('T')[0]};
 });
 
@@ -82,15 +86,15 @@ const WeekCards = ({ selectedDay, setSelectedDay, city }) => {
 
     return (
         <div className="relative w-full max-w-full overflow-hidden">
-        <div className="flex">
+        <div className="flex flex-row">
             <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-secondary p-2 rounded-md"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-0 rounded-md"
             onClick={prevSlide}
             disabled={index === 0}
             >
             <FontAwesomeIcon icon={faArrowLeft} />
             </button>
-            <div className="flex transition-transform duration-1000 ease-in-out overflow-x-hidden">
+            <div className="flex transition-transform duration-1000 ease-in-out overflow-x-hidden gap-2">
                     {daysWeather.slice(index, index + visibleCards).map((dayWeather) => {
                         const dayDate = new Date(dayWeather.date);
                         const dayName = dayDate.toLocaleDateString('en-US', { weekday: 'long' });
@@ -115,7 +119,7 @@ const WeekCards = ({ selectedDay, setSelectedDay, city }) => {
                 } )}
             </div>
             <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-secondary p-2 rounded-md"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-0 rounded-md"
             onClick={nextSlide}
             disabled={index + visibleCards >= daysWeather.length}
             >
