@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import WeekCards from './WeekCards';
 import WeatherTemperatureChart from './WeatherTemperatureChart';
 import { getDayWeather } from './weatherService';
+import worldCities from './worldCities';
 
 const WeeklyBoard = ({ country, city }) => {
   const today = new Date();
@@ -9,8 +10,10 @@ const WeeklyBoard = ({ country, city }) => {
   const [selectedDay, setSelectedDay] = useState(todayDate) // the defualt selection is today
   const [selectedWeather, setSelectedWeather] = useState([])
 
+  const city_data = worldCities.filter((c) => c.name === city)[0]
+
   useEffect(() => {
-    getDayWeather(city, selectedDay, selectedDay).then(weatherData => {
+    getDayWeather(city_data.latitude, city_data.longitude, selectedDay).then(weatherData => {
       const data = weatherData.weather?.[0].hourly.map(d => ({ time: d.time, temp: d.tempC }));
       setSelectedWeather(data)
     })

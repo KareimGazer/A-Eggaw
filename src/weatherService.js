@@ -21,4 +21,12 @@ const getTodayDetails = (lat, lon) => {
     return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&date=today&format=json&fx=yes&tp=24&cc=yes&mca=no`).then(res => res.data.data)
 }
 
-export { getTodayWeather, getWeekWeather, getDayWeather, getTodayDetails}
+const getMontlyAverages = (lat, lon) => {
+    return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&tp=24&mca=yes&date=today&format=json&fx=no&cc=no`).then(res => res.data.data)
+}
+
+const getMonthArchive = (lat, lon, startData, endData) => {
+    return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&tp=24&mca=yes&date=today&format=json&fx=no&cc=no`).then(res => res.data.data)
+}
+
+export { getTodayWeather, getWeekWeather, getDayWeather, getTodayDetails, getMontlyAverages, getMonthArchive}
