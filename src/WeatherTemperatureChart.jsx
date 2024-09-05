@@ -45,22 +45,22 @@ const WeatherTemperatureChart = ({ data }) => {
     gradient.append('stop')
       .attr('offset', '0%')
       .attr('stop-color', '#d7191c')
-      .attr('stop-opacity', 0.7); // Reduced opacity
+      .attr('stop-opacity', 0.7); 
     
     gradient.append('stop')
       .attr('offset', '40%')
       .attr('stop-color', '#f7da57')
-      .attr('stop-opacity', 0.7); // Reduced opacity
+      .attr('stop-opacity', 0.7); 
 
     gradient.append('stop')
       .attr('offset', '75%')
       .attr('stop-color', '#ffffbf')
-      .attr('stop-opacity', 0.7); // Reduced opacity
+      .attr('stop-opacity', 0.7); 
 
     gradient.append('stop')
       .attr('offset', '100%')
       .attr('stop-color', '#8dcbeb')
-      .attr('stop-opacity', 0.7); // Reduced opacity
+      .attr('stop-opacity', 0.7);
 
     // X-axis
     svg.append('g')

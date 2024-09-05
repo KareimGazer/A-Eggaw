@@ -1,34 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloudSun, faTemperature0, faWind, faDroplet, faGlassWaterDroplet, faSun } from '@fortawesome/free-solid-svg-icons'
 import { getMontlyAverages } from './weatherService';
 import { useState, useEffect } from 'react';
 import worldCities from './worldCities';
-
-function getMonths() {
-    const monthInfo = [];
-    const currentDate = new Date();
-
-    for (let i = 0; i < 12; i++) {
-        const month = currentDate.getMonth() - i;
-        const year = currentDate.getFullYear();
-
-        // Calculate the correct year and month
-        const adjustedDate = new Date(year, month, 1);
-
-        const firstDay = new Date(adjustedDate.getFullYear(), adjustedDate.getMonth(), 1);
-        const lastDay = new Date(adjustedDate.getFullYear(), adjustedDate.getMonth() + 1, 0);
-
-        monthInfo.push({
-            index: firstDay.getMonth() + 1,
-            name: firstDay.toLocaleDateString('en-US', { month: 'long' }),
-            year: firstDay.getFullYear(),
-            firstDay,
-            lastDay,
-        });
-    }
-
-    return monthInfo;
-}
+import { getLast12Months } from './utils/history';
 
 const Title = () => {
     return (
@@ -69,12 +42,12 @@ const MonthTable = () => {
     )
 }
 
-const MonthCard = ({ selectedMonth, city_location }) => {
+const MonthOverView = ({ selectedMonth, city_location }) => {
     const [monthsData, setMonthsData] = useState([])
     useEffect(() => {
         getMontlyAverages(city_location.latitude, city_location.longitude).then((data) => {
             const monthList = data.ClimateAverages?.[0].month
-            console.log(monthList)
+            setMonthsData(monthList)
         })
     }, [])
 
@@ -92,19 +65,19 @@ const MonthCard = ({ selectedMonth, city_location }) => {
                         <li>
                             <div>
                                 <p>⬆️ Max High</p>
-                                <h1>{selectedMonthData?.absMaxTemp}</h1>
+                                <h1 className='font-bold'>{selectedMonthData?.absMaxTemp} °C</h1>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <p>⬇️ Average Low</p>
-                                <h1>{selectedMonthData?.avgMinTemp}</h1>
+                                <h1 className='font-bold'>{selectedMonthData?.avgMinTemp}</h1>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <p>Average Daily RainFall</p>
-                                <h1>{selectedMonthData?.avgDailyRainfall}</h1>
+                                <h1 className='font-bold'>{selectedMonthData?.avgDailyRainfall}</h1>
                             </div>
                         </li>
                     </ul>
@@ -119,7 +92,7 @@ const MonthlyBoard = ({ country, city }) => {
     const today = new Date()
     const [selectedMonth, setSelectedMonth] = useState(today.getMonth() + 1)
     const [monthArchiveData, setMonthArchiveData] = useState([])
-    const lastYear = getMonths()
+    const lastYear = getLast12Months()
     const city_data = worldCities.filter((c) => c.name === city)[0]
     const city_location = {
         latitude: city_data.latitude,
@@ -130,7 +103,7 @@ const MonthlyBoard = ({ country, city }) => {
             <Title/>
             <MonthsList months={lastYear} selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth}/>
             <MonthTable />
-            <MonthCard selectedMonth={selectedMonth} city_location={city_location}/>
+            <MonthOverView selectedMonth={selectedMonth} city_location={city_location}/>
         </div>
     )
 }

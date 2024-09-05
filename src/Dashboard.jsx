@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 import DailyBoard from './DailyBoard';
 import WeeklyBoard from './WeeklyBoard';
 import MonthlyBoard from './MonthlyBoard';
 
-const Dashboard = () => {
+const Dashboard = ({setCity, setCountry}) => {
   const { country, city } = useParams()
 
   return (

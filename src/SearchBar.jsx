@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams, Route, Link, Routes, useLocation} from 'react-router-dom'
 
 import CountrySelector from "./CountrySelector";
 import CitySelector from "./CitySelector";
@@ -11,8 +11,9 @@ const calcDistance = (lat1, lon1, lat2, lon2) => {
 
 const Loading = () => (<span className="loading loading-dots loading-lg p-0"></span>)
 
-const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity}) => {
-    
+const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity }) => {
+    const { hash, pathname, search } = useLocation()
+    console.log(hash, pathname, search)
     const [userMessage, setUserMessage] = useState("Chooce Your Location")
     const [loading, setLoading] = useState(true)
 
@@ -23,7 +24,7 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
     }
 
     useEffect(() => {
-        if ("geolocation" in navigator && selectedCountry === '') {
+        if ("geolocation" in navigator && !pathname.includes('dashboard')) {
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
                     const [lat, lon] = [pos.coords.latitude, pos.coords.longitude].map(x => x.toFixed(3))
@@ -37,7 +38,7 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
             )
         }
         else {
-            console.error("geolocation not available")
+            console.log("geolocation not available")
         }
 
     }, [])
@@ -50,8 +51,8 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
                     <CitySelector selectedCity={selectedCity} setSelectedCity={setSelectedCity} selectedCountry={selectedCountry} setUserMessage={setUserMessage} setLoading={setLoading}/>
                     <CountrySelector selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} setSelectedCity={setSelectedCity} setUserMessage={setUserMessage} setLoading={setLoading}/>
                     <input disabled={!selectedCountry || !selectedCity} className="btn btn-primary join-item rounded-full" type="submit" value={"Forecast"}/>
-            </fieldset>
-        </form>
+                </fieldset>
+            </form>
         </div>
     )
 } 

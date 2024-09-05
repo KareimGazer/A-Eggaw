@@ -2,6 +2,7 @@ import axios from "axios";
 
 
 const base_url = 'http://api.worldweatheronline.com/premium/v1/weather.ashx'
+const old_url =  'http://api.worldweatheronline.com/premium/v1/past-weather.ashx'
 const api_key = import.meta.env.VITE_APP_API_KEY
 
 
@@ -25,8 +26,8 @@ const getMontlyAverages = (lat, lon) => {
     return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&tp=24&mca=yes&date=today&format=json&fx=no&cc=no`).then(res => res.data.data)
 }
 
-const getMonthArchive = (lat, lon, startData, endData) => {
-    return axios.get(`${base_url}?key=${api_key}&q=${lat},${lon}&num_of_days=1&tp=24&mca=yes&date=today&format=json&fx=no&cc=no`).then(res => res.data.data)
+const getMonthArchive = (lat, lon, startDate, endDate) => {
+    return axios.get(`${old_url}?key=${api_key}&q=${lat},${lon}&date=${startDate}&enddate=${endDate}&tp=24&format=json`).then(res => res.data.data)
 }
 
 export { getTodayWeather, getWeekWeather, getDayWeather, getTodayDetails, getMontlyAverages, getMonthArchive}
