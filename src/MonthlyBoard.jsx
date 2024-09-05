@@ -1,7 +1,6 @@
 import { getMontlyAverages } from './weatherService';
 import { useState, useEffect } from 'react';
 import worldCities from './worldCities';
-import { getLast12Months } from './utils/history';
 
 const Title = () => {
     return (
@@ -92,7 +91,6 @@ const MonthlyBoard = ({ country, city }) => {
     const today = new Date()
     const [selectedMonth, setSelectedMonth] = useState(today.getMonth() + 1)
     const [monthArchiveData, setMonthArchiveData] = useState([])
-    const lastYear = getLast12Months()
     const city_data = worldCities.filter((c) => c.name === city)[0]
     const city_location = {
         latitude: city_data.latitude,
@@ -100,10 +98,7 @@ const MonthlyBoard = ({ country, city }) => {
     }
     return (
         <div className="max-w-5xl">
-            <Title/>
-            <MonthsList months={lastYear} selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth}/>
-            <MonthTable />
-            <MonthOverView selectedMonth={selectedMonth} city_location={city_location}/>
+            <MonthOverView selectedMonth={selectedMonth} city_location={city_location} />
         </div>
     )
 }

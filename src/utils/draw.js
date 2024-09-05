@@ -50,12 +50,14 @@ const drawMinMaxTemp = (svg, data, margin, base_height) => {
         .attr('fill-opacity', 0.6);
 
     // Append the minTemp line (blue)
-    svg.append('path')
+    const minLinePath = svg.append('path')
         .datum(data)
         .attr('fill', 'none')
         .attr('stroke', '#00ccf5')
         .attr('stroke-width', 3)
         .attr('d', lineMin);
+    
+    minLinePath.datum(data).transition().duration(3000).attr('d', lineMin);
 
     // Append the maxTemp line (red)
     svg.append('path')

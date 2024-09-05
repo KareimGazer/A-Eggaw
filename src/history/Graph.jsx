@@ -8,8 +8,7 @@ const Graph = ({ data, selectedGraph }) => {
     useEffect(() => {
         const svg = d3.select(svgRef.current);
         svg.selectAll("*").remove();
-        console.log("cleaned the graph")
-    }, [selectedGraph]);
+    }, [selectedGraph, data]);
 
     useEffect(() => {
         const margin = { top: 10, right: 30, bottom: 20, left: 30 };
