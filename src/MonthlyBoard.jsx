@@ -48,7 +48,7 @@ const MonthOverView = ({ selectedMonth, city_location }) => {
             const monthList = data.ClimateAverages?.[0].month
             setMonthsData(monthList)
         })
-    }, [])
+    }, [city_location])
 
     const selectedMonthData = monthsData.filter(m => Number(m.index) === selectedMonth)?.[0]
     
