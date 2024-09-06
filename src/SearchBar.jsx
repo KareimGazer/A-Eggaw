@@ -13,7 +13,6 @@ const Loading = () => (<span className="loading loading-dots loading-lg p-0"></s
 
 const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelectedCity }) => {
     const { hash, pathname, search } = useLocation()
-    console.log(hash, pathname, search)
     const [userMessage, setUserMessage] = useState("Chooce Your Location")
     const [loading, setLoading] = useState(true)
 

@@ -26,7 +26,6 @@ const Graph = ({ data, selectedGraph }) => {
 
         if (selectedGraph === 'temp') {
             drawMinMaxTemp(svg, data, margin, base_height);
-            console.log("draw new data")
         }
         else if (selectedGraph === 'uvIndex') {
             drawUVIndex(svg, data, margin, base_height);

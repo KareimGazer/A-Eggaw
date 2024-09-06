@@ -20,7 +20,7 @@ const WeeklyBoard = ({ country, city }) => {
   }, [selectedDay, city])
 
   return (
-      <div className="flex flex-col gap-4 justify-center">
+      <div className="flex flex-col gap-4 w-full">
       <WeekCards selectedDay={selectedDay} setSelectedDay={setSelectedDay} city={city} />
       <WeatherTemperatureChart data={selectedWeather} />
       </div>

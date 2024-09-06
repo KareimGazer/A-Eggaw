@@ -129,8 +129,8 @@ const WeatherTemperatureChart = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="md:w-auto p-4 card card-bordered rounded-lg pt-4 pb-0 px-0 max-w-4xl">
-      <svg ref={svgRef} className="w-full h-full"></svg>
+    <div className="w-full h-full p-2 card card-bordered rounded-lg">
+      <svg ref={svgRef} className="w-full"></svg>
     </div>
   );
 };
