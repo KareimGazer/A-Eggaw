@@ -24,4 +24,6 @@ dist-ssr
 *.sw?
 
 data
+dist
 .env
+.fly.toml

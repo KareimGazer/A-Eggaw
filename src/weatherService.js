@@ -1,8 +1,8 @@
 import axios from "axios";
 
 
-const base_url = 'http://api.worldweatheronline.com/premium/v1/weather.ashx'
-const old_url =  'http://api.worldweatheronline.com/premium/v1/past-weather.ashx'
+const base_url = 'https://api.worldweatheronline.com/premium/v1/weather.ashx'
+const old_url =  'https://api.worldweatheronline.com/premium/v1/past-weather.ashx'
 const api_key = import.meta.env.VITE_APP_API_KEY
 
 
