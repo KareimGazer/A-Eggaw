@@ -8,7 +8,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="text-cyan-700 text-center mt-8">
-                <p>Copyright © 2024 - All right reserved by <span className="font-bold font-dancing text-lg"> Kareim </span></p>
+                <p>Copyright © 2024 - All rights reserved by <span className="font-bold font-dancing text-lg"> Kareim </span></p>
                 <p>Powered by <a href="https://www.worldweatheronline.com/weather-api/" target="_blank" rel="noopener noreferrer">World Weather API</a></p>
             </div>
         </footer>

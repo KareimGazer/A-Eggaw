@@ -35,7 +35,7 @@ const CityEntry = ({ city }) => {
               <div className="opacity-50 text-lg">{min_temp}°</div>
             </div>
         </td>
-        <td>
+        <td className="text-center">
             <span className="badge badge-md badge-secondary">{desc}</span>
         </td>
         <td className="py-4 px-1 text-center">{feels_like}°</td>
@@ -55,7 +55,7 @@ const CountryTable = ({ cities }) => {
                     <tr className="w-full text-sm">
                         <th className="py-4 px-2 text-left text-base sm:text-sm md:text-xs">City</th>
                         <th className="py-4 px-2 text-left">High & Low</th>
-                        <th className="py-4 px-2 text-left">Overall</th>
+                        <th className="py-4 px-2 text-center">Overall</th>
                         <th className="py-4 px-2 text-left">Feels Like</th>
                         <th className="py-4 px-2 text-left">Sunrise</th>
                         <th className="py-4 px-2 text-left">Sunset</th>

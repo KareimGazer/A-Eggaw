@@ -19,7 +19,6 @@ const HistoryDashboard = ({selectedCity}) => {
     const city_data = worldCities.filter((c) => c.name === selectedCity)[0]
     const {firstDay, lastDay} = getMonthBoundries(selectedMonth, selectedYear)
     useEffect(() => {
-        console.log(city_data.latitude, city_data.longitude, firstDay, lastDay)
         getMonthArchive(city_data.latitude, city_data.longitude, firstDay, lastDay).then((data) => {
             const cleanData = data.weather?.map((d) => ({
                 date: d.date.slice(-2),
@@ -29,7 +28,6 @@ const HistoryDashboard = ({selectedCity}) => {
                 humidity: d.hourly?.[0].humidity
             }))
             setWeatherData(cleanData)
-            console.log(data)
         })
     }, [selectedMonth, selectedYear, selectedCity])
     
