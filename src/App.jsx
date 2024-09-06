@@ -9,7 +9,7 @@ import Dashboard from "./Dashboard"
 
 function App() {
   const [country, setCountry] = useState('') // maybe better to defualt to any country
-  const [city, setCity] = useState('Cairo')
+  const [city, setCity] = useState('')
 
   return (
     <>

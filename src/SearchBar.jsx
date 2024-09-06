@@ -15,7 +15,6 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
     const { hash, pathname, search } = useLocation()
     const [userMessage, setUserMessage] = useState("Chooce Your Location")
     const [loading, setLoading] = useState(true)
-
     const navigate = useNavigate()
     const onSubmit = (event) => {
     event.preventDefault()
@@ -38,6 +37,8 @@ const SearchBar = ({ selectedCountry, setSelectedCountry, selectedCity, setSelec
         }
         else {
             console.log("geolocation not available")
+            setUserMessage("Based On Your Given URL")
+            setLoading(false)
         }
 
     }, [])

@@ -9,6 +9,11 @@ import HistoryDashboard from "./history/HistoryDashboard"
 const Dashboard = ({setCity, setCountry}) => {
   const { country, city } = useParams()
 
+  useEffect(() => {
+    setCountry(country)
+    setCity(city)
+  }, [])
+
   return (
     <div className="flex flex-col items-center">
       <DailyBoard country={country} city={city}/>
