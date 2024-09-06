@@ -26,4 +26,4 @@ dist-ssr
 data
 dist
 .env
-.fly.toml
+fly.toml
