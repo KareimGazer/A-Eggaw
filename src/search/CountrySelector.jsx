@@ -1,4 +1,4 @@
-import worldCountries from "./worldCountries";
+import worldCountries from "../data/worldCountries";
 
 const CountrySelector = ({ selectedCountry, setSelectedCountry, setSelectedCity, setUserMessage, setLoading }) => {
     const handleCountrySelect = (event) => {

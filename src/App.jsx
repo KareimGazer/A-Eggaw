@@ -2,7 +2,7 @@ import { useState } from "react"
 import {Routes, Route} from 'react-router-dom'
 
 import Navbar from "./Navbar"
-import SearchBar from "./Searchbar"
+import SearchBar from "./search/SearchBar"
 import CountryInfo from "./CountryInfo"
 import Footer from "./Footer"
 import Dashboard from "./Dashboard"

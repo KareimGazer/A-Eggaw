@@ -1,6 +1,6 @@
 import CountryMap from "./CountryMap";
 import CountryTable from "./CountryTable";
-import worldCities from "./worldCities"
+import worldCities from "./data/worldCities"
 
 const CountryInfo = ({ country }) => {
     const cites = worldCities.filter((city) => city.country_name === country)

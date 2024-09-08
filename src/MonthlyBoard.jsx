@@ -1,6 +1,6 @@
 import { getMontlyAverages } from './weatherService';
 import { useState, useEffect } from 'react';
-import worldCities from './worldCities';
+import worldCities from './data/worldCities';
 
 const Title = () => {
     return (

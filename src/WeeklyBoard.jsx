@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import WeekCards from './WeekCards';
 import WeatherTemperatureChart from './WeatherTemperatureChart';
 import { getDayWeather } from './weatherService';
-import worldCities from './worldCities';
+import worldCities from './data/worldCities';
 
 const WeeklyBoard = ({ country, city }) => {
   const today = new Date();

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import GraphSelector from "./GraphSelector"
 import Graph from "./Graph"
 import TimeSelector from "./TimeSelector"
-import worldCities from "../worldCities"
+import worldCities from "../data/worldCities"
 import { getMonthBoundries } from "../utils/history"
 import { getMonthArchive } from "../weatherService";
 
