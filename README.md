@@ -61,11 +61,15 @@ start by downloading [Docker](https://www.docker.com/get-started/)
 
 #### Development 👨‍💻
 
+Uses a nodejs container image and runs the app on the vite development server
+
 ```bash
 docker compose -f .\docker-compose.dev.yml up --build --watch
 ```
 
 #### Production 🏭
+
+Uses a multi-stage image building process starting from nodejs image to generate the build, and then uses [goStatic](https://github.com/PierreZ/goStatic) image as a static web server built with Go. It's commonly used with the Jamstack although the app is MERN oriented.
 
 ```bash
 docker compose up 
