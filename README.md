@@ -99,6 +99,9 @@ A-Eggaw
 ├── dist                             static site built files (git ignored)
 ├── .gitignore
 ├── .dockerignore
-├── Dockerfile                       The production built image of the server 
+├── dev.Dockerfile                   Image for running the development server  
+├── docker-compose.dev.yml           development compose file    
+├── Dockerfile                       The production container image of the server 
+├── Dockerfile                       production compose file
 └── index.html
 ```
