@@ -11,7 +11,7 @@ const Graph = ({ data, selectedGraph }) => {
     }, [selectedGraph, data]);
 
     useEffect(() => {
-        const margin = { top: 10, right: 30, bottom: 20, left: 30 };
+        const margin = { top: 10, right: 20, bottom: 20, left: 20 };
         const base_height = 200;
         const height = base_height - margin.top - margin.bottom;
         const width = base_height * 4 - margin.left - margin.right;
