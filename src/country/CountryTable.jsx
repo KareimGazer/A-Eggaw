@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getTodayDetails } from "./weatherService"
+import { getTodayDetails } from "../utils/weatherService"
 
 const CityEntry = ({ city }) => {
     const [weather, setWeather] = useState({})

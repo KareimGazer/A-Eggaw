@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloud, faCloudRain, faWind, faDroplet, faGlassWaterDroplet, faSun, faEye} from '@fortawesome/free-solid-svg-icons'
-import WeatherIcon from './WeatherIcon';
-import {getTodayWeather} from './weatherService';
-import worldCities from './data/worldCities';
+import { faCloud, faCloudRain, faWind, faDroplet, faSun, faEye} from '@fortawesome/free-solid-svg-icons'
+import WeatherIcon from '../utils/WeatherIcon';
+import {getTodayWeather} from '../utils/weatherService';
+import worldCities from '../data/worldCities';
 
 const Focus = ({currentTemp, desc}) => {
 

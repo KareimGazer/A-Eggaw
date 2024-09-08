@@ -1,4 +1,4 @@
-import { monthsOfTheYear, getYearsNumbers, getMonthBoundries } from "../utils/history"
+import { monthsOfTheYear, getYearsNumbers } from "../utils/history"
 
 const currentDate = new Date();
 const currentMonth = currentDate.getMonth() + 1;

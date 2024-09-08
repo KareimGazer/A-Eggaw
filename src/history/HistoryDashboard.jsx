@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react"
-
+import worldCities from "../data/worldCities"
+import { getMonthBoundries } from "../utils/history"
+import { getMonthArchive } from "../utils/weatherService";
 import GraphSelector from "./GraphSelector"
 import Graph from "./Graph"
 import TimeSelector from "./TimeSelector"
-import worldCities from "../data/worldCities"
-import { getMonthBoundries } from "../utils/history"
-import { getMonthArchive } from "../weatherService";
 
 const currentDate = new Date();
 const currentMonth = currentDate.getMonth() + 1;

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation} from 'react-router-dom'
-
 import CountrySelector from "./CountrySelector";
 import CitySelector from "./CitySelector";
 import worldCities from '../data/worldCities';

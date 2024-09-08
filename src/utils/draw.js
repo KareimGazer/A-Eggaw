@@ -1,6 +1,5 @@
 import * as d3 from 'd3';
 
-
 const drawMinMaxTemp = (svg, data, margin, base_height) => {
     const height = base_height - margin.top - margin.bottom;
     const width = base_height * 4 - margin.left - margin.right;

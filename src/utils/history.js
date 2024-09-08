@@ -1,6 +1,4 @@
-
 const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
 
 const getLast12Months = (selectedDate) => {
     const monthInfo = [];
@@ -45,7 +43,7 @@ const getMonthBoundries = (monthIndex, yearIndex) => {
         firstDay: firstDay.toISOString().split('T')[0],
         lastDay: lastDay.toISOString().split('T')[0],
         monthName
-     };
+    };
 }
 
 

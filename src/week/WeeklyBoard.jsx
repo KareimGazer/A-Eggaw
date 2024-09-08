@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import { getDayWeather } from '../utils/weatherService';
+import worldCities from '../data/worldCities';
 import WeekCards from './WeekCards';
-import WeatherTemperatureChart from './WeatherTemperatureChart';
-import { getDayWeather } from './weatherService';
-import worldCities from './data/worldCities';
+import WeatherTemperatureChart from './WeekGraph';
 
 const WeeklyBoard = ({ country, city }) => {
   const today = new Date();

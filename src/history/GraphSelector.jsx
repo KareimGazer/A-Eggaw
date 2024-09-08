@@ -1,5 +1,3 @@
-
-
 const GraphSelector = ({selectedGraph, setSelectedGraph}) => {
 
     return (

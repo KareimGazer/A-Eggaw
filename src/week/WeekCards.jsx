@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-
-import worldCities from './data/worldCities';
-import { getWeekWeather } from './weatherService';
-import WeatherIcon from './WeatherIcon';
+import worldCities from '../data/worldCities';
+import { getWeekWeather } from '../utils/weatherService';
+import WeatherIcon from '../utils/WeatherIcon';
 
 
 const MoreDetails = ({ desc, humidity }) => {
