@@ -19,7 +19,7 @@ A production-grade single page app for weather forecasting.
 
 ## Features 🚀
 
-Here is a [slides version](https://docs.google.com/presentation/d/1BhxiugWHq_NrVFlPmnR1rBMZF9b1vmJTj76LBA_iOqY/edit#slide=id.g2fcee10ece6_0_26399)!
+Here is a [slides version](https://docs.google.com/presentation/d/1BhxiugWHq_NrVFlPmnR1rBMZF9b1vmJTj76LBA_iOqY/edit#slide=id.g2fcee10ece6_0_21213)!
 - Dark / Light modes
 - Auto location and time detection
 - summary of the weather across the country
@@ -31,6 +31,9 @@ Here is a [slides version](https://docs.google.com/presentation/d/1BhxiugWHq_NrV
 ## Getting Started 🚩
 
 We provide two ways one using docker with minimal setup or locally if you don't get comfortable with containers. both provide production and development environments.
+
+> :warning: 
+> This App is powered by the [World Weather API](https://www.worldweatheronline.com/weather-api/) so you need to get an API key first and then set your [environment variables](https://vitejs.dev/guide/env-and-mode) in the `.env` file.
 
 ### Locally 🖥️
 
