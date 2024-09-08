@@ -15,6 +15,8 @@ A production-grade single page app for weather forecasting.
       - [Development 👨‍💻](#development--1)
       - [Production 🏭](#production--1)
   - [Testing 🧪](#testing-)
+    - [Unit Testing 🔎](#unit-testing-)
+    - [End-To-End Testing 🎭](#end-to-end-testing-)
   - [Project Structure 📂](#project-structure-)
 
 ## Features 🚀
@@ -70,6 +72,14 @@ docker compose up
 ```
 
 ## Testing 🧪
+
+### Unit Testing 🔎
+
+vitest
+
+### End-To-End Testing 🎭
+
+[Playwright](https://playwright.dev/) is the right choice, you can find a standalone testing repo [here](https://github.com/KareimGazer/A-Eggaw-E2E).
 
 ## Project Structure 📂
 

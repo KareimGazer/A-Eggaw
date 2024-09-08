@@ -22,6 +22,7 @@ function Navbar({ headline }) {
         <button
           className="btn btn-circle text-3xl btn-ghost"
           onClick={toggleTheme}
+          value='theme'
         >
           {theme === light ? '🌝' : '☀️'}
         </button>
