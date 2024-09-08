@@ -59,7 +59,15 @@ start by downloading [Docker](https://www.docker.com/get-started/)
 
 #### Development 👨‍💻
 
+```bash
+docker compose -f .\docker-compose.dev.yml up --build --watch
+```
+
 #### Production 🏭
+
+```bash
+docker compose up 
+```
 
 ## Testing 🧪
 

@@ -1,0 +1,19 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    container_name: A-Eggaw-dev
+    ports:
+      - 5173:5173
+    command: npm run dev -- --host
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: .
+          ignore: 
+            - node_modules/
+        - action: rebuild
+          path: package.json
+          
