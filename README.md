@@ -7,6 +7,7 @@ A production-grade single page app for weather forecasting.
 - [A-Eggaw 🌤️](#a-eggaw-️)
   - [Table of content 📋](#table-of-content-)
   - [Features 🚀](#features-)
+  - [Future Roadmap 🗺️](#future-roadmap-️)
   - [Getting Started 🚩](#getting-started-)
     - [Locally 🖥️](#locally-️)
       - [Development 👨‍💻](#development-)
@@ -29,6 +30,17 @@ Here is a [slides version](https://docs.google.com/presentation/d/1BhxiugWHq_NrV
 - accurate weather forecating for the next 10 days
 - historical weather info in the last 10 years
 - iteractive charts
+
+## Future Roadmap 🗺️
+
+- E2E Testing (in progress)
+- prototypes
+- RTK for stage management
+- Vitest
+- CI/CD
+- Browser caching
+- [Tommorw API](https://www.tomorrow.io/weather-api/)
+- Typescript
 
 ## Getting Started 🚩
 
