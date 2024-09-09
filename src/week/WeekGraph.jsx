@@ -3,8 +3,9 @@ import * as d3 from 'd3';
 import { drawTemp } from '../utils/draw';
 
 const WeatherTemperatureChart = ({ data }) => {
-  // clear the image
+  
   const svgRef = useRef();
+  
   useEffect(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
@@ -25,7 +26,6 @@ const WeatherTemperatureChart = ({ data }) => {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
     
-
     drawTemp(svg, data, margin, base_height);
 
   }, [data]);
