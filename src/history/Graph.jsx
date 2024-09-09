@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { drawMinMaxTemp, drawUVIndex, drawHumidity } from '../utils/draw';
+import {setupHumidityGraph, setupMinMaxTempGraph, setupUVIndexGraph } from '../utils/draw';
 
 const Graph = ({ data, selectedGraph }) => {
     const svgRef = useRef();
@@ -23,13 +23,13 @@ const Graph = ({ data, selectedGraph }) => {
             .attr('transform', `translate(${margin.left},${margin.top})`);
         
         if (selectedGraph === 'temp') {
-            drawMinMaxTemp(svg, data, width, height);
+            setupMinMaxTempGraph(svg, data, width, height);
         }
         else if (selectedGraph === 'uvIndex') {
-            drawUVIndex(svg, data, width, height);
+            setupUVIndexGraph(svg, data, width, height);
         }
         else if (selectedGraph === 'humidity') {
-            drawHumidity(svg, data, width, height);
+            setupHumidityGraph(svg, data, width, height);
         }
     }, [selectedGraph]);
 
@@ -64,7 +64,7 @@ const Graph = ({ data, selectedGraph }) => {
             svg.selectAll('rect')
                 .data(data)
                 .transition()
-                .duration(1000)
+                .duration(750)
                 .attr('x', d => x_scale(d.date))
                 .attr('y', d => y_scale(d.uvIndex))
                 .attr('width', x_scale.bandwidth())

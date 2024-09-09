@@ -7,8 +7,6 @@ import CountryInfo from "./main/CountryInfo"
 import Footer from "./main/Footer"
 import Dashboard from "./main/Dashboard"
 
-import HistoryDashboard from "./history/HistoryDashboard"
-
 function App() {
   const [country, setCountry] = useState('') // maybe better to defualt to any country
   const [city, setCity] = useState('')
@@ -27,7 +25,6 @@ function App() {
           <Route path="/dashboard/:country/:city" element={<Dashboard setCity={setCity} setCountry={setCountry}/>}/>
           <Route path="/" element={<CountryInfo country={country} />} />
         </Routes>
-        {/* <HistoryDashboard selectedCity={'Cairo'} /> */}
       </div>
       <Footer />
     </>

@@ -85,7 +85,7 @@ const drawTemp = (svg, data, width, height) => {
 
 }
 
-const drawMinMaxTemp = (svg, data, width, height) => {
+const setupMinMaxTempGraph = (svg, data, width, height) => {
 
     svg.append('path').datum(data).attr('id', 'area-max-temp').attr('fill', '#c4060f').attr('fill-opacity', 0.6)
     svg.append('path').datum(data).attr('id', 'area-min-temp').attr('fill', '#036ffc').attr('fill-opacity', 0.6)
@@ -97,7 +97,7 @@ const drawMinMaxTemp = (svg, data, width, height) => {
     svg.append('g').attr('id', 'temp-axis')
 }
 
-const drawHumidity = (svg, data, width, height) => {
+const setupHumidityGraph = (svg, data, width, height) => {
     
     svg.append('path').datum(data).attr('id', 'humidity-line').attr('fill', 'none').attr('stroke', '#00ccf5').attr('stroke-width', 2)
     
@@ -131,7 +131,7 @@ const drawHumidity = (svg, data, width, height) => {
     svg.append('g').attr('id', 'humidity-axis')
 }
 
-const drawUVIndex = (svg, data, width, height) => {
+const setupUVIndexGraph = (svg, data, width, height) => {
     const [min_uv, max_uv] = [0, 11]
 
     const x_scale = d3.scaleBand()
@@ -160,4 +160,4 @@ const drawUVIndex = (svg, data, width, height) => {
     svg.append('g').attr('id', 'uvIndex-axis')
 }
 
-export { drawMinMaxTemp, drawUVIndex, drawHumidity, drawTemp}
+export { setupMinMaxTempGraph, setupUVIndexGraph, setupHumidityGraph, drawTemp}
