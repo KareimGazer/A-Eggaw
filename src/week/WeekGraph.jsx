@@ -26,7 +26,7 @@ const WeatherTemperatureChart = ({ data }) => {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
     
-    drawTemp(svg, data, margin, base_height);
+    drawTemp(svg, data, width, height);
 
   }, [data]);
 
