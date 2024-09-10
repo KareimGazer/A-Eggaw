@@ -35,11 +35,10 @@ const CountryMap = ({country}) => {
     const svgRef = useRef();
     const parentRef = useRef();
     const cities = worldCities.filter((city) => city.country_name === country)
-    const centroid = calculateCentroid(cities)
-    console.log(centroid)
 
     const height = 300;
     const width = 1.5 * height
+
 
     useEffect(() => {
         const svg = d3.select(svgRef.current);
@@ -48,11 +47,18 @@ const CountryMap = ({country}) => {
 
     useEffect(() => {
         const svg = d3.select(svgRef.current).attr("viewBox", [0, 0, width, height]);
+        const countryFeatures = countriesGeo.features.filter((shape) => shape.properties.name === country)[0]
+        const bounds = d3.geoBounds(countryFeatures)
+        const [[x0, y0], [x1, y1]] = bounds;
+        const bboxWidth = x1 - x0;
+        const bboxHeight = y1 - y0;
+        const scale = Math.min(width / bboxWidth, height / bboxHeight) * 100;
+        const center = [(x0 + x1) / 2, (y0 + y1) / 2];
         
         // Set up a geographical projection
         const projection = d3.geoEquirectangular()
-            .center(centroid) // Center over Egypt
-            .scale(1300) // Adjust scale
+            .center(center) // Center over Egypt
+            .scale(scale * 0.55) // Adjust scale
             .translate([width / 2, height / 2]);
         
         const pathGenerator = d3.geoPath().projection(projection);
@@ -61,8 +67,9 @@ const CountryMap = ({country}) => {
             .data(countriesGeo.features)
             .enter().append("path")
             .attr("d", pathGenerator)
-            .attr("fill", "#b8b8b8")
-            .attr("stroke", "#333");
+            .attr("fill", "#f0ebc9")
+            .attr("stroke", "white")
+            .attr("stroke-width", 1);
         
         // Plot the cities on the map
         svg.selectAll("circle")
@@ -70,9 +77,9 @@ const CountryMap = ({country}) => {
             .enter().append("circle")
             .attr("cx", (city) => projection([Number(city.longitude), Number(city.latitude)])[0])
             .attr("cy", (city) => projection([Number(city.longitude), Number(city.latitude)])[1])
-            .attr("r", 2)
-            .attr("fill", "red")
-            .attr("stroke", "black");
+            .attr("r", 3)
+            .attr("fill", "green")
+            .attr("stroke", "None");
 
         // Add city labels
         svg.selectAll("text")
@@ -81,7 +88,7 @@ const CountryMap = ({country}) => {
             .attr("x", (city) => projection([Number(city.longitude), Number(city.latitude)])[0] + 3)
             .attr("y", (city) => projection([Number(city.longitude), Number(city.latitude)])[1] + 1)
             .text(d => d.name)
-            .attr("font-size", "5px")
+            .attr("font-size", "8px")
             .attr("fill", "black");
     }, [country])
     
