@@ -33,6 +33,7 @@ Here is a [slides version](https://docs.google.com/presentation/d/1BhxiugWHq_NrV
 
 ## Future Roadmap 🗺️
 
+- Country GeoJSON Map (under development)
 - E2E Testing (in progress)
 - prototypes
 - RTK for stage management
