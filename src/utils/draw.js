@@ -96,7 +96,7 @@ const setupMinMaxTempGraph = (svg, data, width, height) => {
     svg.append('path').datum(data).attr('id', 'max-temp-line').attr('fill', 'none').attr('stroke', '#f73e00').attr('stroke-width', 3)
 
     svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`).style('color', 'white').style('font-size', '10px')
-    svg.append('g').attr('id', 'temp-axis').style('color', 'white').style('font-size', '10px')
+    svg.append('g').attr('id', 'temp-axis').attr("class", "grid").style('color', 'white').style('font-size', '12px')
 }
 
 const setupHumidityGraph = (svg, data, width, height) => {
@@ -130,7 +130,7 @@ const setupHumidityGraph = (svg, data, width, height) => {
     svg.append('path').datum(data).attr('id', 'humidity-area').attr('fill', 'url(#humidity-gradient)').attr('fill-opacity', 0.4);
     
     svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`).style('color', 'white').style('font-size', '10px')
-    svg.append('g').attr('id', 'humidity-axis').style('color', 'white').style('font-size', '10px')
+    svg.append('g').attr('id', 'humidity-axis').attr("class", "grid").style('color', 'white').style('font-size', '12px')
 }
 
 const setupUVIndexGraph = (svg, data, width, height) => {
@@ -159,7 +159,7 @@ const setupUVIndexGraph = (svg, data, width, height) => {
         
 
     svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`).style('color', 'white').style('font-size', '10px')
-    svg.append('g').attr('id', 'uvIndex-axis').style('color', 'white').style('font-size', '10px')
+    svg.append('g').attr('id', 'uvIndex-axis').attr("class", "grid").style('color', 'white').style('font-size', '12px')
 }
 
 export { setupMinMaxTempGraph, setupUVIndexGraph, setupHumidityGraph, drawTemp}

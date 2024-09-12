@@ -53,7 +53,8 @@ const Graph = ({ data, selectedGraph }) => {
             svg.select('#max-temp-line').datum(data).transition().duration(750).attr('d', lineMax);
 
             svg.selectAll("#time-axis").call(d3.axisBottom(x_scale))
-            svg.selectAll("#temp-axis").call(d3.axisLeft(y_scale))
+            svg.selectAll("#temp-axis").call(d3.axisLeft(y_scale).tickSize(-width))
+            svg.selectAll(".grid line").style("stroke-width", "0.5").style("stroke-dasharray", "2,2").style("opacity", "0.7") 
         }
         else if (selectedGraph === 'uvIndex') {
             const [min_uv, max_uv] = [0, 11]
@@ -75,7 +76,8 @@ const Graph = ({ data, selectedGraph }) => {
                 .attr('opacity', 0.8); // Lower opacity
             
             svg.selectAll("#time-axis").call(d3.axisBottom(x_scale))
-            svg.selectAll("#uvIndex-axis").call(d3.axisLeft(y_scale))
+            svg.selectAll("#uvIndex-axis").call(d3.axisLeft(y_scale).tickSize(-width))
+            svg.selectAll(".grid line").style("stroke-width", "0.5").style("stroke-dasharray", "2,2").style("opacity", "0.7")
             
         }
         else if (selectedGraph === 'humidity') {
@@ -88,7 +90,8 @@ const Graph = ({ data, selectedGraph }) => {
             svg.selectAll("#humidity-area").transition().duration(750).attr("d", areaGenerator(data))
             
             svg.selectAll("#time-axis").call(d3.axisBottom(x_scale))
-            svg.selectAll("#humidity-axis").call(d3.axisLeft(y_scale))
+            svg.selectAll("#humidity-axis").call(d3.axisLeft(y_scale).tickSize(-width))
+            svg.selectAll(".grid line").style("stroke-width", "0.5").style("stroke-dasharray", "2,2").style("opacity", "0.7") 
         }
         
     }, [selectedGraph, data]);
