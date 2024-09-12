@@ -17,7 +17,7 @@ const MoreDetails = ({ desc, humidity }) => {
 const Card = ({ selectedDay, setSelectedDay, dayDate, dayName, dayNumber, high, low, desc, humidity }) => {
 
     return (
-        <div className="flex-shrink-0 rounded-lg text-center card card-bordered p-2" onClick={() => setSelectedDay(dayDate)}>
+        <div className="flex-shrink-0 rounded-lg text-center card card-bordered p-2 glass" onClick={() => setSelectedDay(dayDate)}>
             <div className='flex flex-col justify-center'>
                 <div>
                     <div className='flex flex-row items-center gap-2'>

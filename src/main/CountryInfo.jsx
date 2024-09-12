@@ -6,7 +6,7 @@ const CountryInfo = ({ country }) => {
     const cites = worldCities.filter((city) => city.country_name === country)
     return (
         <div>
-            <CountryMap country={country} />
+            {/* <CountryMap country={country} /> */}
             <CountryTable cities={cites} />
         </div>
     );

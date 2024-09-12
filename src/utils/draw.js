@@ -81,7 +81,9 @@ const drawTemp = (svg, data, width, height) => {
     // X-axis
     svg.append('g')
         .attr('transform', `translate(0,${height})`)
-        .call(d3.axisBottom(x_scale));
+        .call(d3.axisBottom(x_scale))
+        .style('color', 'white')
+        .style('font-size', '14px');
 
 }
 
@@ -93,8 +95,8 @@ const setupMinMaxTempGraph = (svg, data, width, height) => {
     svg.append('path').datum(data).attr('id', 'min-temp-line').attr('fill', 'none').attr('stroke', '#00ccf5').attr('stroke-width', 3)
     svg.append('path').datum(data).attr('id', 'max-temp-line').attr('fill', 'none').attr('stroke', '#f73e00').attr('stroke-width', 3)
 
-    svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`)
-    svg.append('g').attr('id', 'temp-axis')
+    svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`).style('color', 'white').style('font-size', '10px')
+    svg.append('g').attr('id', 'temp-axis').style('color', 'white').style('font-size', '10px')
 }
 
 const setupHumidityGraph = (svg, data, width, height) => {
@@ -111,7 +113,7 @@ const setupHumidityGraph = (svg, data, width, height) => {
     
     gradient.append('stop')
         .attr('offset', '30%')
-        .attr('stop-color', '#05e6c8')
+        .attr('stop-color', '#03fcc2')
         .attr('stop-opacity', 0.7); 
 
     gradient.append('stop')
@@ -127,8 +129,8 @@ const setupHumidityGraph = (svg, data, width, height) => {
         // Append the area under the minTemp (blue)
     svg.append('path').datum(data).attr('id', 'humidity-area').attr('fill', 'url(#humidity-gradient)').attr('fill-opacity', 0.4);
     
-    svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`)
-    svg.append('g').attr('id', 'humidity-axis')
+    svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`).style('color', 'white').style('font-size', '10px')
+    svg.append('g').attr('id', 'humidity-axis').style('color', 'white').style('font-size', '10px')
 }
 
 const setupUVIndexGraph = (svg, data, width, height) => {
@@ -156,8 +158,8 @@ const setupUVIndexGraph = (svg, data, width, height) => {
         .attr('height', d => height - y_scale(d.uvIndex))
         
 
-    svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`)
-    svg.append('g').attr('id', 'uvIndex-axis')
+    svg.append('g').attr('id', 'time-axis').attr('transform', `translate(0,${height})`).style('color', 'white').style('font-size', '10px')
+    svg.append('g').attr('id', 'uvIndex-axis').style('color', 'white').style('font-size', '10px')
 }
 
 export { setupMinMaxTempGraph, setupUVIndexGraph, setupHumidityGraph, drawTemp}

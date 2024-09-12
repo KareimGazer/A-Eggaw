@@ -8,7 +8,7 @@ import worldCities from '../data/worldCities';
 const Focus = ({currentTemp, desc}) => {
 
     return (
-        <div className='text-center card card-bordered border-2 flex flex-col justify-center p-4 w-full'>
+        <div className='text-center card card-bordered border-2 flex flex-col justify-center p-4 w-full glass'>
             <h1 className='font-bold text-left card-title'> Today </h1>
             <WeatherIcon cond={desc} size='text-7xl h-full p-16' />
             <div>
@@ -56,42 +56,42 @@ const Details = ({feelTemp, humidity, wind, precip, pressure, uv, visibility}) =
             <DayHeader temp={feelTemp}/>
             <main>
                 <div className='grid grid-cols-2 gap-1'>
-                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs'>
+                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs glass'>
                         <FontAwesomeIcon icon={faDroplet} className='text-md' />
                         <div>
                             <h1 className='text-3xl'>{humidity}%</h1>
                             <p>Humidity</p>
                         </div>
                     </div>
-                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs'>
+                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs glass'>
                         <FontAwesomeIcon icon={faWind} className='text-md' />
                         <div>
                             <h1 className='text-3xl'>{wind} km/h</h1>
                             <p>Wind</p>
                         </div>
                     </div>
-                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs'>
+                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs glass'>
                         <FontAwesomeIcon icon={faCloudRain} className='text-md' />
                         <div>
                             <h1 className='text-3xl'>{precip}%</h1>
                             <p>precip</p>
                         </div>
                     </div>
-                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs'>
+                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs glass'>
                         <FontAwesomeIcon icon={faCloud} className='text-md' />
                         <div>
                             <h1 className='text-3xl'>{pressure}</h1>
                             <p>pressure</p>
                         </div>
                     </div>
-                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs'>
+                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs glass'>
                         <FontAwesomeIcon icon={faSun} className='text-md' />
                         <div>
                             <h1 className='text-3xl'>{uv}</h1>
                             <p>UV</p>
                         </div>
                     </div>
-                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs'>
+                    <div className='text-center card card-bordered border-2 p-4 w-full max-w-xs glass'>
                         <FontAwesomeIcon icon={faEye} className='text-md' />
                         <div>
                             <h1 className='text-3xl'>{visibility}</h1>

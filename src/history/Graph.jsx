@@ -95,7 +95,7 @@ const Graph = ({ data, selectedGraph }) => {
 
     return (
         <div className="w-full h-full p-2">
-        <svg ref={svgRef} className="w-full"></svg>
+            <svg ref={svgRef} className="w-full"></svg>
         </div>
     );
 };

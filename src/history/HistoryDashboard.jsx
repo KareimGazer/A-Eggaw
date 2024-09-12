@@ -32,7 +32,7 @@ const HistoryDashboard = ({selectedCity}) => {
     
 
     return (
-        <div className="flex flex-col card card-bordered p-2 w-full max-w-4xl">
+        <div className="flex flex-col card card-bordered p-2 w-full max-w-4xl glass">
             <GraphSelector selectedGraph={selectedGraph} setSelectedGraph={setSelectedGraph}/>
             <Graph data={weatherData} selectedGraph={selectedGraph}/>
             <TimeSelector selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} selectedYear={selectedYear} setSelectedYear={setSelectedYear}/>

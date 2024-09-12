@@ -53,7 +53,7 @@ const MonthOverView = ({ selectedMonth, city_location }) => {
     const selectedMonthData = monthsData.filter(m => Number(m.index) === selectedMonth)?.[0]
     
     return (
-        <div className='text-center card card-bordered flex flex-col justify-center p-2 max-w-2xl my-4'>
+        <div className='text-center card card-bordered flex flex-col justify-center p-2 max-w-2xl my-4 glass'>
             <h1 className='font-bold text-left'> Weather Overview </h1>
             <div className='grid grid-cols-2 items-center'>
                 <div>
