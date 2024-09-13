@@ -54,8 +54,8 @@ const drawTemp = (svg, data, width, height) => {
         .duration(1500)
         .ease(d3.easeCubicInOut)
         .attr('d', d3.area()
-        .x(d => x_scale(d.time))
-        .y0(height) // Extend to the bottom
+            .x(d => x_scale(d.time))
+            .y0(height) // Extend to the bottom
             .y1(d => y_scale(d.temp))
             .curve(d3.curveCardinal)
         );
