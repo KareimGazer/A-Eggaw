@@ -20,31 +20,27 @@ const drawTemp = (svg, data, width, height) => {
         .attr('x2', '0%')
         .attr('y2', '100%'); // Top-to-bottom gradient
 
-    gradient.append('stop')
-        .attr('offset', '0%')
-        .attr('stop-color', '#d7191c')
-        .attr('stop-opacity', 0.7); 
-    
-    gradient.append('stop')
-        .attr('offset', '40%')
-        .attr('stop-color', '#f7da57')
-        .attr('stop-opacity', 0.7); 
+    const gradientStops = [
+        { offset: '0%', color: '#d7191c', opacity: 0.7 },
+        { offset: '40%', color: '#f7da57', opacity: 0.7 },
+        { offset: '75%', color: '#ffffbf', opacity: 0.7 },
+        { offset: '100%', color: '#8dcbeb', opacity: 0.7 },
+    ];
 
-    gradient.append('stop')
-        .attr('offset', '75%')
-        .attr('stop-color', '#ffffbf')
-        .attr('stop-opacity', 0.7); 
-
-    gradient.append('stop')
-        .attr('offset', '100%')
-        .attr('stop-color', '#8dcbeb')
-        .attr('stop-opacity', 0.7);
+    // Append stops to the gradient
+    gradientStops.forEach(stop => {
+        gradient.append('stop')
+            .attr('offset', stop.offset)
+            .attr('stop-color', stop.color)
+            .attr('stop-opacity', stop.opacity);
+    });
 
     // Define the area generator with initial y position set to the bottom
     const areaGenerator = d3.area()
         .x(d => x_scale(d.time))
         .y0(height) // Extend to the bottom
-        .y1(height); // Start from the bottom
+        .y1(height) // Start from the bottom
+        .curve(d3.curveCardinal) // Apply smooth curve
 
     // Append the area path with initial values for the transition
     const areaPath = svg.append('path')
@@ -60,7 +56,8 @@ const drawTemp = (svg, data, width, height) => {
         .attr('d', d3.area()
         .x(d => x_scale(d.time))
         .y0(height) // Extend to the bottom
-        .y1(d => y_scale(d.temp))
+            .y1(d => y_scale(d.temp))
+            .curve(d3.curveCardinal)
         );
 
     // Add temperature labels

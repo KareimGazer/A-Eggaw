@@ -35,7 +35,6 @@ const Graph = ({ data, selectedGraph }) => {
 
     useEffect(() => {
         const svg = d3.select(svgRef.current);
-        
 
         if (selectedGraph === 'temp') {
 
