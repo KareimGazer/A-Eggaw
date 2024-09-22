@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getMontlyAverages } from '../utils/weatherService'
-import worldCities from '../data/worldCities'
+import worldCities from '../loc_data/worldCities'
 
 const Title = () => {
   return <div className="p-2 font-semibold">Monthly Trends</div>

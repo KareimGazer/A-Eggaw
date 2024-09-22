@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import CountrySelector from './CountrySelector'
 import CitySelector from './CitySelector'
-import worldCities from '../data/worldCities'
+import worldCities from '../loc_data/worldCities'
 
 const calcDistance = (lat1, lon1, lat2, lon2) => {
   return Math.sqrt((lat1 - lat2) ** 2 + (lon1 - lon2) ** 2)

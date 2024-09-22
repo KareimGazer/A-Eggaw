@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloud, faCloudRain, faWind, faDroplet, faSun, faEye } from '@fortawesome/free-solid-svg-icons'
 import WeatherIcon from '../utils/WeatherIcon'
 import { getTodayWeather } from '../utils/weatherService'
-import worldCities from '../data/worldCities'
+import worldCities from '../loc_data/worldCities'
 
 const Focus = ({ currentTemp, desc }) => {
   return (

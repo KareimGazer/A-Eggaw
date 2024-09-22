@@ -1,4 +1,4 @@
-import worldCountries from '../data/worldCountries'
+import worldCountries from '../loc_data/worldCountries'
 
 const CountrySelector = ({ selectedCountry, setSelectedCountry, setSelectedCity, setUserMessage, setLoading }) => {
   const handleCountrySelect = (event) => {

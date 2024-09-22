@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import countriesGeo from '../data/countriesGeo'
-import worldCities from '../data/worldCities'
+import countriesGeo from '../loc_data/countriesGeo'
+import worldCities from '../loc_data/worldCities'
 
 const calculateCentroid = (cities) => {
   const totalCities = cities.length

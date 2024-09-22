@@ -1,4 +1,4 @@
-import worldCities from '../data/worldCities'
+import worldCities from '../loc_data/worldCities'
 
 const CitySelector = ({ selectedCity, setSelectedCity, selectedCountry, setUserMessage, setLoading }) => {
   const citesList = worldCities.filter((city) => city['country_name'] === selectedCountry)

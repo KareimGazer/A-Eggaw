@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import worldCities from '../data/worldCities'
+import worldCities from '../loc_data/worldCities'
 import { getMonthBoundries } from '../utils/history'
 import { getMonthArchive } from '../utils/weatherService'
 import GraphSelector from './GraphSelector'

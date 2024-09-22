@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getDayWeather } from '../utils/weatherService'
-import worldCities from '../data/worldCities'
+import worldCities from '../loc_data/worldCities'
 import WeekCards from './WeekCards'
 import WeatherTemperatureChart from './WeekGraph'
 
