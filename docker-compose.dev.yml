@@ -12,8 +12,7 @@ services:
         - action: sync
           path: .
           target: .
-          ignore: 
+          ignore:
             - node_modules/
         - action: rebuild
           path: package.json
-          

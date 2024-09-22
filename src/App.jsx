@@ -1,11 +1,11 @@
-import { useState } from "react"
-import {Routes, Route} from 'react-router-dom'
+import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-import Navbar from "./main/Navbar"
-import SearchBar from "./search/SearchBar"
-import CountryInfo from "./main/CountryInfo"
-import Footer from "./main/Footer"
-import Dashboard from "./main/Dashboard"
+import Navbar from './main/Navbar'
+import SearchBar from './search/SearchBar'
+import CountryInfo from './main/CountryInfo'
+import Footer from './main/Footer'
+import Dashboard from './main/Dashboard'
 
 function App() {
   const [country, setCountry] = useState('') // maybe better to defualt to any country
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <Navbar headline={"A-Eggaw"} />
+      <Navbar headline={'A-Eggaw'} />
       <div className="flex flex-col items-center w-full bg-gradient-to-t from-cyan-500">
         <SearchBar
           selectedCountry={country}
@@ -22,7 +22,7 @@ function App() {
           setSelectedCountry={setCountry}
         />
         <Routes>
-          <Route path="/dashboard/:country/:city" element={<Dashboard setCity={setCity} setCountry={setCountry}/>}/>
+          <Route path="/dashboard/:country/:city" element={<Dashboard setCity={setCity} setCountry={setCountry} />} />
           <Route path="/" element={<CountryInfo country={country} />} />
         </Routes>
       </div>
