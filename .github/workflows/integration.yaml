@@ -7,14 +7,14 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    runs-on: windows-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20 # the same version used for production
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Lint Code
         run: npm run lint
       - name: Build
